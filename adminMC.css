@@ -1,0 +1,442 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    min-height: 100vh;
+    overflow: hidden;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+}
+a:hover{
+
+    color: #D54A6A;
+}
+li{
+    list-style: none;
+}
+h1,h2{
+    color: #72E8D2;
+    font-size: 24px;
+}
+h3{
+    color: #999;
+}
+.btn{
+    color: #ffff;
+    background: #D54A6A;
+    padding: 5px 10px;
+    text-align: center;
+}
+.btn:hover{
+    color: #ffff;
+    background: #E06F89;
+    padding: 4px 8px;
+    transition: 0.2s;
+}
+.title{
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    border-bottom: 2px solid #D54A6A;
+    padding: 15px 10px;
+}
+table{
+    padding: 10px;
+}
+th, td{
+    text-align: left;
+    padding: 8px;
+}
+.side-menu{
+    position: fixed;
+    background: #D54A6A;
+    width: 25vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.side-menu .company-name{
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    margin-left: 35px;
+}
+.side-menu li {
+    display: flex; 
+    align-items: center; 
+    padding: 20px 40px; 
+    color: #fff; 
+    font-size: 18px; 
+    position: relative;
+    cursor: pointer;
+}
+
+.side-menu li a {
+    display: flex; 
+    align-items: center; 
+    width: 100%; 
+    height: 100%; 
+    color: inherit; 
+    text-decoration: none; 
+}
+
+.side-menu li i {
+    font-size: 20px; 
+    margin-right: 10px; 
+}
+
+.side-menu li:hover,
+.side-menu .active {
+    background: #fff; 
+    color: #D54A6A; 
+}
+
+.side-menu li:hover a {
+    color: inherit; 
+}
+
+.container-panel{
+    position: absolute;
+    width: 80vw;
+    background: #f1f1f1;
+    right: 0;
+
+}
+.container-panel .headerAdmin{
+    top: 0;
+    right: 0;
+    width: 80vw;
+    height: 10vh;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background: #ffff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.container-panel .headerAdmin .nav{
+    display: flex;
+    align-items: center;
+    width: 94%;
+}
+.container-panel .headerAdmin .nav .search{
+    flex: 6;
+    display: flex;
+    
+}
+.container-panel .headerAdmin .nav .search input[type=text]{
+    background: #f1f1f1;
+    border: none;
+    padding: 10px;
+    width: 50%;
+}
+.container-panel .headerAdmin .nav .search button{
+    border: none;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+.container-panel .headerAdmin .nav .user{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1;
+}
+.container-panel .headerAdmin .nav .user img{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    position: relative;
+}
+.container-panel .headerAdmin .nav .user .img-case{
+    width: 50px;
+    height: 50px;
+    position: relative;
+}
+.container-panel .headerAdmin .nav .user .img-case img{
+    top: 0;
+    left: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+.popup-logout {
+    display: none; /* Initially hidden */
+    position: absolute;
+    top: 60px; /* Adjust based on your layout */
+    right: 0;
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #D54A6A;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    z-index: 9999;
+    width: 200px;
+    text-align: center;
+}
+
+.popup-logout p {
+    margin: 10px 0;
+    color: #333;
+    font-size: 16px;
+}
+
+.popup-logout .btn {
+    width: 80px;
+    margin: 5px;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.popup-logout .confirm-logout {
+    background-color: #D54A6A;
+    color: white;
+}
+
+.popup-logout .cancel-logout {
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+.popup-logout .btn:hover {
+    opacity: 0.8;
+}
+.notification-bell {
+    position: relative;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.notification-count {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #ff4444;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.notification-panel {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    width: 300px;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    z-index: 1000;
+}
+
+.notification-header {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    font-weight: bold;
+    color: #D54A6A;
+}
+
+.notification-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.notification-item {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.notification-item:last-child {
+    border-bottom: none;
+}
+
+.notification-item.unread {
+    background-color: #f8f9fa;
+}
+
+.notification-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #4CAF50;
+    border-radius: 50%;
+}
+
+.show {
+    display: block;
+}
+.container-panel .content{
+    position: relative;
+    min-height: 90vh;
+    margin-top: 12vh;
+}
+.box h1{
+    color: #D54A6A;
+    font-size: 38px;
+}
+.container-panel .content .cards{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 15px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.container-panel .content .cards .card{
+    background: #ffff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 250px;
+    height: 150px;
+    margin: 20px 10px;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+
+}
+.icon-case i{
+    font-size: 47px;
+    color: #D54A6A;
+}
+.container-panel .content .content-2{
+    display: flex;
+    min-height: 60vh;
+    align-items: flex-start;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.container-panel .content .content-2 .recent-bookings{
+    background: #ffff;
+    min-height: 50vh;
+    flex: 5;
+    margin: 0 25px 25px 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    flex-direction: column;
+    display: flex;
+}
+.container-panel .content .content-2 .new-caretaker{
+    background: #ffff;
+    flex: 2;
+    min-height: 50vh;
+    margin: 0 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    flex-direction: column;
+}
+.container-panel .content .content-2 .new-caretaker table td i{
+    font-size: 30px;
+    color: #D54A6A;
+    text-align: center;
+    cursor: pointer;
+}
+.title h2{
+    color: #D54A6A;
+}
+/*-------- manage caretakers panel -------*/
+
+.container-panel .content .content-3 .staff-details {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+}
+
+.container-panel .content .content-3 .staff-details .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.container-panel .content .content-3 .staff-details table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    display: block;
+    max-height: 600px;
+    overflow-y: auto;
+}
+.container-panel .content .content-3 .staff-details table thead tr{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.container-panel .content .content-3 .staff-details table th {
+    padding: 18px;
+    text-align: left;
+    background: #D54A6A;
+    color: #fff;
+}
+
+.container-panel .content .content-3 .staff-details table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.container-panel .content .content-3 .staff-details table tr:hover {
+    background: #f9f9f9;
+}
+
+.content-3 .staff-details table .edit-btn, .content-3 .staff-details table .delete-btn {
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.content-3 .staff-details table .edit-btn {
+    background: #72E8D2;
+}
+
+.content-3 .staff-details table .edit-btn:hover {
+    background: #72E8D2;
+    padding: 4px 8px;
+    transition: 0.2s;
+}
+
+.content-3 .staff-details table .delete-btn {
+    background: #D54A6A;
+}
+.content-3 .staff-details table .delete-btn:hover{
+    padding: 4px 8px;
+    transition: 0.2s;
+}
+
+
+
+/*-------- media responsive -------*/
+@media screen and (max-width: 940px){
+    .side-menu li span{
+        display: none;
+    }
+    .side-menu{
+        align-items: center;
+    }
+    .side-menu li i{
+        font-size: 20px;
+    }
+}
+@media screen and (max-width: 940px){
+    .company-name h1{
+        font-size: 16px;
+        align-items: start;
+    }
+    .container-panel .content .cards{
+        justify-content: center;
+    }
+}
+

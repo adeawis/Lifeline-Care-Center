@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Lifeline Care Center</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        :root {
+            --primary-color: #20B2AA;
+            --secondary-color: #E75480;
+            --light-blue: #F0F8FF;
+        }
+
+        .header {
+            background-color: white;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-image {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .logo-title span {
+            color: var(--primary-color);
+        }
+
+        .logo-tagline {
+            font-size: 0.8rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero {
+            background-color: var(--light-blue);
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            color: var(--secondary-color);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            max-width: 800px;
+            margin: 0 auto;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: -4rem auto 0;
+            padding: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .stat-label {
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 2rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .section p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .image-container {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .team-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 6rem 1rem 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .stats {
+                margin-top: -2rem;
+            }
+
+            .stat-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo-container">
+                <img src="images/logo.png" alt="logo-image" class="logo-image">
+                <div class="logo-text">
+                    <div class="logo-title">
+                        <span>Lifeline</span>Care Center
+                    </div>
+                    <div class="logo-tagline">Compassion. Trust. Care</div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Expert Care, Trusted Hands</h1>
+        <p>With years of experience in the healthcare industry, Lifeline Care Center has become a trusted name in providing high-quality care. Our team of highly skilled professionals is equipped with the latest knowledge and techniques to ensure optimal health and well-being.</p>
+    </section>
+
+    <div class="stats">
+        <div class="stat-card">
+            <div class="stat-number">100+</div>
+            <div class="stat-label">Certified Caregivers</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">10+</div>
+            <div class="stat-label">Years of Experience</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">Districts Covered</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Satisfied Clients</div>
+        </div>
+    </div>
+
+    <main class="content">
+        <section class="section">
+            <h2>Our Mission</h2>
+            <p>At Lifeline Care Center, our mission is to provide exceptional healthcare services that promote independence, dignity, and quality of life for our clients. We believe in delivering personalized care that meets the unique needs of each individual we serve.</p>
+            <p>From managing chronic conditions to promoting independence, we offer a comprehensive range of services designed to meet your specific needs. Experience the difference that expert care can make.</p>
+        </section>
+
+        <section class="section">
+            <h2>Our Services</h2>
+            <div class="team-grid">
+                <div>
+                    <div class="image-container">
+                        <img src="images/treatingPic.jpg" alt="Primary Care" class="team-image">
+                    </div>
+                    <p>Specialized nursing care for elderly patients, providing compassionate and professional medical support in the comfort of their homes.</p>
+                </div>
+                <div>
+                    <div class="image-container">
+                        <img src="images/caregiving.jpeg" alt="Specialized Care" class="team-image">
+                    </div>
+                    <p>Dedicated caregivers providing specialized care and assistance to elderly individuals in their home environment.</p>
+                </div>
+                <div>
+                    <div class="image-container">
+                        <img src="images/cleaning.jpeg" alt="Home Care" class="team-image">
+                    </div>
+                    <p>Daily housekeeping services including cleaning, laundry, and general maintenance for elderly individuals' comfort and well-being.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Our Team</h2>
+            <p>Our healthcare professionals are more than just caregivers – they're passionate advocates for your health and well-being. Each member of our team is carefully selected, extensively trained, and committed to providing the highest standard of care.</p>
+            <div class="team-grid">
+                <div>
+                    <div class="image-container">
+                        <img src="images/nurses.jpg" alt="Medical Staff" class="team-image">
+                    </div>
+                    <p>Our medical staff includes experienced doctors, nurses, and specialists dedicated to your care.</p>
+                </div>
+                <div>
+                    <div class="image-container">
+                        <img src="images/caregivers.jpg" alt="Support Team" class="team-image">
+                    </div>
+                    <p>Our support staff ensures smooth operations and comfortable experience for all patients.</p>
+                </div>
+                <div>
+                    <div class="image-container">
+                        <img src="images/cordinators.jpg" alt="Care Coordinators" class="team-image">
+                    </div>
+                    <p>Our coordinators work to create personalized care plans and ensure seamless service delivery.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <!--**comoany-box**-->
+            <div class="footer-company-box">
+                <!--logo-->
+                <a href="#" class="logo-name"><span>Lifeline</span>Care Center</a>
+                <!--details-->
+                <p>Lifeline Care Center – Compassionate care and support for recovery, chronic conditions, and daily well-being.</p>
+                <!--social-box-->
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/profile.php?id=61570740961821&mibextid=ZbWKwL" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    
+                </div>
+            </div>
+            <!--**link-box***-->
+            <div class="footer-link-box">
+                <strong>Main Link's</strong>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about-us">About Us</a></li>
+                    <li><a href="#why-choose-us">Contact Us</a></li>
+                    <li><a href="#our-services">Our Services</a></li>
+                    <li><a href="#our-team">Portfolio</a></li>
+                </ul>
+            </div>
+            
+            <!--**link-box***-->
+            <div class="footer-link-box">
+                <strong>External Link's</strong>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Disclaimer</a></li>
+                    <li><a href="#">Term's and Condition's</a></li>
+                    <li><a href="review.php">Your Reviews</a></li>
+                </ul>
+            </div>
+            
+   
+        </div>
+
+        <!--**bottom**********************-->
+        <div class="footer-bottom">
+            <span class="footer-owner">Made By Lifeline Care (Group 2)</span>
+            <span class="copyright">Copyright © 2024 - Lifeline Care Center. All Rights Reserved.</span>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling for statistics animation
+        const stats = document.querySelectorAll('.stat-number');
+        
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        stats.forEach(stat => {
+            stat.style.opacity = 0;
+            stat.style.transform = 'translateY(20px)';
+            stat.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(stat);
+        });
+
+        // Add smooth scroll behavior for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

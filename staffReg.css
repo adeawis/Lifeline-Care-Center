@@ -1,0 +1,137 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: -apple-system, sans-serif;
+}
+
+
+ /*Header Section Code Register*/
+
+ header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 5%;
+    transition: all 0.5s ease;
+    
+}
+
+.logo{
+    font-size: 4rem;
+    color: #ffff;
+    font-weight: 300;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    
+}
+
+.logo:hover{
+    transform: scale(1.1);
+}
+
+span{
+    color: rgb(9, 248, 222);
+    
+}
+
+.nav-btn{
+    display: inline-block;
+    padding: 0.5rem 2rem;
+    background: transparent;
+    color: rgb(9, 248, 222);
+    border-radius: 1rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    transition: all 0.5s ease;
+}
+
+.nav-btn:hover{
+    background: rgb(9, 248, 222);
+    color: #ffff;
+    box-shadow: 0 0 18px rgb(9, 248, 222);
+}
+
+#menu-icon{
+    font-size: 3.6rem;
+    color: rgb(9, 248, 222);
+    cursor: pointer;
+    display: none;
+}
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(4, 12, 48, 0.7), rgba(5, 14, 48, 0.7)),
+    url(../images/img4.jpg);
+    margin: 0;
+    width: 100%;
+    background-position: center;
+    background-size: cover ;
+    position: relative;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    
+    
+}
+
+form {
+    background-color: rgba(255,255,255,0.7);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 80%;
+    margin: 10px;
+
+
+    
+    /* Adjust as needed */
+}
+input[type="name"],
+input[type="email"],
+input[type="text"],
+input[type="tel"],
+textarea,
+button,
+select {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.reg-form h2{
+    text-align: center;
+    margin: 15px;
+     
+}
+
+button {
+    background-color: #D54A6A;
+    color: #fff;
+    cursor: pointer;
+    margin: 15px 0;
+}
+
+button:hover {
+    background-color: #D46C84;
+}

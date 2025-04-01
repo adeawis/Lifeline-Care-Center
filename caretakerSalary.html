@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--==title========================-->
+    <title>Admin | Lifeline Care Center</title>
+    <!--==Fav-icon=====================-->
+    <link rel="shortcut icon" href="images/titleIcon.png">
+    <!--==CSS==========================-->
+    <link rel="stylesheet" href="css/adminManageStaff.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!--==Font-Awesome-for-icons=====-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            position: relative;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #D54A6A;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .close-btn{
+            position: absolute;
+            font-weight: 600;
+            top: 10px;
+            right: 10px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            color: black;
+            text-align: center;
+            line-height: 19px;
+            border-radius: 15px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .close-btn:hover{
+            background: #f0f0f0;
+        }
+        button:hover {
+            background-color: #A53954 ;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #D54A6A;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #resultArea {
+            margin-top: 20px;
+            display: none;
+        }
+
+        .error {
+            color: red;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="manageCaretakers.php" class="close-btn">&times;</a>
+        <h1>Caretaker Salary Checker</h1>
+        
+        <form id="salaryForm" method="POST">
+            <div class="form-group">
+                <label for="caretakerName">Caretaker Name:</label>
+                <select id="caretakerName" name="caretakerName" required>
+                    <option value="">Select Caretaker</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="month">Select Month:</label>
+                <select id="month" name="month" required>
+                    <option value="">Select Month</option>
+                    <option value="01">January</option>
+                    <option value="02">February</option>
+                    <option value="03">March</option>
+                    <option value="04">April</option>
+                    <option value="05">May</option>
+                    <option value="06">June</option>
+                    <option value="07">July</option>
+                    <option value="08">August</option>
+                    <option value="09">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="year">Year:</label>
+                <input type="number" id="year" name="year" min="2015" max="2050" required>
+            </div>
+
+            <button type="submit">Check Salary</button>
+        </form>
+
+        <div id="resultArea">
+            <h2>Salary Details</h2>
+            <table id="salaryTable">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Caretaker Name</td>
+                        <td id="resultName"></td>
+                    </tr>
+                    <tr>
+                        <td>Position</td>
+                        <td id="resultPosition"></td>
+                    </tr>
+                    <tr>
+                        <td>Experience</td>
+                        <td id="resultExperience"></td>
+                    </tr>
+                    <tr>
+                        <td>Month/Year</td>
+                        <td id="resultPeriod"></td>
+                    </tr>
+                    <tr>
+                        <td>Active Assignments</td>
+                        <td id="resultAssignments"></td>
+                    </tr>
+                    <tr>
+                        <td>Total Days Worked</td>
+                        <td id="resultDaysWorked"></td>
+                    </tr>
+                    <tr>
+                        <td>Base Rate</td>
+                        <td id="resultBaseRate"></td>
+                    </tr>
+                    <tr>
+                        <td>Total Earnings</td>
+                        <td id="resultTotal"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Load caretaker names on page load
+        window.addEventListener('load', function() {
+            fetch('check_salary.php?action=get_caretakers')
+                .then(response => response.json())
+                .then(data => {
+                    const select = document.getElementById('caretakerName');
+                    data.forEach(caretaker => {
+                        const option = document.createElement('option');
+                        option.value = caretaker.full_name;
+                        option.textContent = caretaker.full_name;
+                        select.appendChild(option);
+                    });
+                })
+                .catch(error => console.error('Error:', error));
+        });
+
+        document.getElementById('salaryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            
+            fetch('check_salary.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('resultArea').style.display = 'block';
+                    document.getElementById('resultName').textContent = data.name;
+                    document.getElementById('resultPosition').textContent = data.position;
+                    document.getElementById('resultExperience').textContent = data.experience;
+                    document.getElementById('resultPeriod').textContent = `${data.month}/${data.year}`;
+                    document.getElementById('resultAssignments').textContent = data.active_assignments;
+                    document.getElementById('resultDaysWorked').textContent = data.days_worked;
+                    document.getElementById('resultBaseRate').textContent = `Rs. ${data.base_rate}`;
+                    document.getElementById('resultTotal').textContent = `Rs. ${data.total_earnings}`;
+                } else {
+                    alert('Error: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while fetching the data.');
+            });
+        });
+
+        // Set default year to current year
+        document.getElementById('year').value = new Date().getFullYear();
+    </script>
+</div>
+</body>
+</html>

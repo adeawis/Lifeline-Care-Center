@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifeline Care Center - Staff Login</title>
+    <link rel="stylesheet" href="css/adminLogin.css">
+    <link rel="shortcut icon" href="images/titleIcon.png">
+    <style>
+        p{
+            color: gray;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .login-container{
+            position: relative;
+        }
+        .close-btn{
+            position: absolute;
+            font-weight: 600;
+            top: 10px;
+            right: 10px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            color: black;
+            text-align: center;
+            line-height: 19px;
+            border-radius: 15px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .close-btn:hover{
+            background: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="login-header">
+            <a href="index.html" class="close-btn">&times;</a>
+            <h1>Lifeline Care Center</h1>
+            <div class="subtitle">Staff Login</div>
+        </div>
+        <form id="login-form" onsubmit="return validateLogin(event)">
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+            <div id="errorMessage" class="error-message">Invalid username or password</div>
+            <p>For login information please contact infolifelinecarecenter@gmail.com</p>
+        </form>
+    </div>
+
+   
+    <div id="errorMessage" class="error-message">Invalid username or password</div>
+</form>
+</div>
+
+<script>
+    
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const errorMessage = document.getElementById('errorMessage');
+    const loginContainer = document.querySelector('.login-container');
+
+    fetch('staffFetch_Login.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email: email, password: password })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Successful login
+            errorMessage.style.display = 'none';
+            window.location.href = 'staffProfile.php';
+        } else {
+            // Failed login
+            errorMessage.style.display = 'block';
+            loginContainer.classList.add('shake');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        errorMessage.style.display = 'block';
+    });
+});
+
+</script>
+</body>
+</html>

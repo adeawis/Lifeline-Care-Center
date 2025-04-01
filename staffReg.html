@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Registration</title>
+    <style>
+        /* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: "Poppins", sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+    background-position: center;
+    background-size: cover ;
+    background-color: #f0f0f0;
+    position: relative;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    
+    
+}
+
+form {
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 80%;
+    margin: 50px auto;
+    font-family: "Poppins", sans-serif;
+    position: relative;
+
+
+    
+    /* Adjust as needed */
+}
+input[type="name"],
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="tel"],
+textarea,
+button,
+select {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.reg-form h2{
+    text-align: center;
+    margin: 15px;
+    color: #D54A6A;
+    font-size: 35px;
+    font-weight: 600
+     
+}
+
+button {
+    background-color: #D54A6A;
+    color: #fff;
+    cursor: pointer;
+    margin: 15px 0;
+    font-size: 18px;
+}
+
+button:hover {
+    background-color: #B13F59;
+}
+.close-btn{
+    position: absolute;
+    font-weight: 600;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    background: white;
+    color: black;
+    text-align: center;
+    line-height: 19px;
+    border-radius: 15px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.close-btn:hover{
+    background: #f0f0f0;
+}
+
+    </style>
+</head>
+<body>
+
+    <form action="staffReg.php" method="post">
+        <a href="manageCaretakers.php" class="close-btn">&times;</a>
+        <div class="reg-form">
+        <h2>Staff Registration</h2>
+   
+        <input type="name" name="full_name" placeholder="Full Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="name" name="age" placeholder="Age" required>
+        <input type="text" name="location" placeholder="Address" required>
+        <input type="name" name="phone" placeholder="Contact Number" required>
+        <select name="gender">
+            <option value="" disabled selected>Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        <select name="position">
+            <option value="" disabled selected>Select Service Type</option>
+            <option value="nurses">Nurse</option>
+            <option value="caregivers">Caregiver</option>
+            <option value="daily">Daily Basis</option>       
+        </select>
+        <input type="name" name="experience" placeholder="Experience (Years)" required>
+        <select name="availability">
+            <option value="" disabled selected>Select Availability</option>
+            <option value="available">Available</option>
+            <option value="unavailable">Unavailable</option>
+        </select>
+        
+        <button type="submit">Add Staff</button>
+    </div>
+    </form>
+</body>
+</html>

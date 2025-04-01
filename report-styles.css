@@ -1,0 +1,163 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.report-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styles */
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.header h1 {
+    color: #D54A6A;
+    margin-bottom: 10px;
+}
+
+.header h2 {
+    color: #333;
+    font-weight: normal;
+}
+
+/* Section Styles */
+.section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.section h3 {
+    color: #D54A6A;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.label {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.value {
+    color: #333;
+    font-weight: 500;
+}
+
+/* Terms & Conditions Styles */
+.terms-conditions ol {
+    padding-left: 20px;
+}
+
+.terms-conditions li {
+    margin-bottom: 10px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Signature Section */
+.signature-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.signature {
+    width: 200px;
+    text-align: center;
+}
+
+.sign-line {
+    width: 100%;
+    height: 1px;
+    background-color: #000;
+    margin-bottom: 10px;
+}
+
+/* Action Buttons */
+.actions {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.print-btn {
+    background-color: #D54A6A;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.print-btn:hover {
+    background-color: #c13d5b;
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: none;
+        padding: 0;
+    }
+
+    .report-container {
+        box-shadow: none;
+    }
+
+    .actions {
+        display: none;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .report-container {
+        padding: 20px;
+    }
+
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .signature-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+}

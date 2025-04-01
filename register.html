@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifeline Care Center | Sign-Up</title>
+    <link rel="stylesheet" href="css/reg.css">
+    <link rel="shortcut icon" href="images/titleIcon.png">
+    <style>
+        .container{
+            position: relative;
+        }
+        .close-btn{
+            position: absolute;
+            font-weight: 600;
+            top: 10px;
+            right: 10px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            color: black;
+            text-align: center;
+            line-height: 19px;
+            border-radius: 15px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .close-btn:hover{
+            background: #f0f0f0;
+        }
+    </style>
+    
+</head>
+<body>
+
+    <div class="container">
+        <a href="index.html" class="close-btn">&times;</a>
+        <div class="title">Registration</div>
+        <form action="registration.php" method="post">
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">Full Name</span>
+                    <input type="text" name="full_name" placeholder="Enter your full name" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Email</span>
+                    <input type="text"  name="email"  placeholder="Enter your email" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Phone Number</span>
+                    <input type="text"  name="phone"  placeholder="Enter your number" required>
+                </div>
+                
+                <div class="input-box">
+                    <span class="details">Password</span>
+                    <input type="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Confirm Password</span>
+                    <input type="password" name="con_password" placeholder="Confirm your password" required>
+                </div>
+            </div>
+            <div class="button">
+                <input type="submit" value="Register Now">
+            </div>
+            <p>Already Have an Account?<a href="sign-in.html"> Sign-In Now</a></p>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.querySelector("form");
+            const password = document.querySelector("input[name='password']");
+            const confirmPassword = document.querySelector("input[name='con_password']");
+    
+            form.addEventListener("submit", function(event) {
+                if (password.value !== confirmPassword.value) {
+                    event.preventDefault(); // Prevent form submission
+                    alert("Passwords do not match. Please try again!");
+                    confirmPassword.focus();
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>

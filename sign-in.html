@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifeline Care Center - Login</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="shortcut icon" href="images/titleIcon.png">
+
+     <!-- fonts connecter-->
+     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+        
+        .login-container{
+            position: relative;
+        }
+        .close-btn{
+            position: absolute;
+            font-weight: 600;
+            top: 10px;
+            right: 10px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            color: black;
+            text-align: center;
+            line-height: 19px;
+            border-radius: 15px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .close-btn:hover{
+            background: #f0f0f0;
+        }
+        </style>
+
+        <!-- fontawesome icons connecter-->
+    <script src="https://kit.fontawesome.com/70d0595457.js" crossorigin="anonymous"></script>
+        
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="login-header">
+            <a href="index.html" class="close-btn">&times;</a>
+            <h1>Lifeline Care Center</h1>
+            <div class="subtitle">Login</div>
+        </div>
+        <div class="input-grp">
+            <form  method="post" id="login-form">
+            <div class="input-field" id="emailField">
+                <input type="email" placeholder="Email" id="email" name="email" required>
+            </div>
+
+            <div class="input-field">
+                <input type="password" placeholder="Password" id="password" name="password" required>
+            </div>
+
+            <p>Forgot Password? <a href="forgotPassword.php"> Click Here</a></p>                      
+            </div>
+
+            <button type="submit" class="login-btn">Login</button>
+            <div class="admin-staff">
+            <p>Don't have an Account?<a href="register.html"> Sign-Up</a></p> 
+                    
+                    <p>Admin : <a href="adminLogin.html" onclick="window.open(this.href, '_blank'); return false;">Click To Log-In</a></p>
+                    <p>Caregivers : <a href="staffLogin.html" onclick="window.open(this.href, '_blank'); return false;">Click To Log-In</a></p>
+                    </div>
+
+            <div id="errorMessage" class="error-message">Invalid username or password</div>
+        </form>
+    </div>
+
+    <script>
+        
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    
+    console.log('Sending:', { email, password }); // Debug log
+
+    fetch('authenticate.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, password })
+    })
+    .then(response => response.text())
+    .then(text => {
+        console.log('Server response:', text); // Debug log
+        try {
+            const data = JSON.parse(text);
+            if (data.success) {
+                window.location.href = 'indexWelcome.php';
+            } else {
+                document.getElementById('errorMessage').style.display = 'block';
+                alert(data.message); // Add alert for debugging
+            }
+        } catch (e) {
+            console.error('Parse error:', e);
+            alert('Server error: ' + text);
+        }
+    })
+    .catch(error => {
+        console.error('Fetch error:', error);
+        alert('Connection error: ' + error);
+    });
+});
+    </script>
+    </body>
+</html>
